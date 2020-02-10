@@ -120,21 +120,50 @@ function articleCreator(data) {
   const articles = document.querySelector('.articles');
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+
+  const button = document.createElement('span');
 
 
   // Append
 
   articles.appendChild(article);
   article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  
+
+  article.appendChild(button);
 
   // Add Classes
 
   article.classList.add('article');
+  articleDate.classList.add('date');
+  button.classList.add('expandButton');
+
+  // Text Content
 
   articleTitle.textContent = data.title;
+  articleDate.textContent = data.date;
+  p1.textContent = data.firstParagraph;
+  p2.textContent = data.secondParagraph;
+  p3.textContent = data.thirdParagraph;
+
+  // Event
+
+  button.addEventListener('click', (event) => {
+
+    article.classList.toggle('.article-open')
+
+  });
 
   // Return
-  
+
   return article;
 
 }
