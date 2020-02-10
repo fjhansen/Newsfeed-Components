@@ -113,19 +113,18 @@ const data = [
 
 */
 
-function articleCreator(data) {
+function articleCreator(array) {
 
   // Copmponents
 
-  const articles = document.querySelector('.articles');
-  const article = document.createElement('div');
-  const articleTitle = document.createElement('h2');
-  const articleDate = document.createElement('p');
-  const p1 = document.createElement('p');
-  const p2 = document.createElement('p');
-  const p3 = document.createElement('p');
-
-  const button = document.createElement('span');
+ let articles = document.querySelector('.articles');
+  let article = document.createElement('div');
+  let articleTitle = document.createElement('h2');
+  let articleDate = document.createElement('p');
+  let p1 = document.createElement('p');
+  let p2 = document.createElement('p');
+  let p3 = document.createElement('p');
+  let buttonOne = document.createElement('span');
 
 
   // Append
@@ -136,29 +135,28 @@ function articleCreator(data) {
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
-  
-
-  article.appendChild(button);
+  article.appendChild(buttonOne);
 
   // Add Classes
 
   article.classList.add('article');
   articleDate.classList.add('date');
-  button.classList.add('expandButton');
+  buttonOne.classList.add('expandButton');
 
   // Text Content
 
-  articleTitle.textContent = data.title;
-  articleDate.textContent = data.date;
-  p1.textContent = data.firstParagraph;
-  p2.textContent = data.secondParagraph;
-  p3.textContent = data.thirdParagraph;
+  articleTitle.textContent = array.title;
+  articleDate.textContent = array.date;
+  p1.textContent = array.firstParagraph;
+  p2.textContent = array.secondParagraph;
+  p3.textContent = array.thirdParagraph;
+  buttonOne.textContent = "Click Me!";
 
   // Event
 
-  button.addEventListener('click', (event) => {
+  buttonOne.addEventListener('click', (event) => {
 
-    article.classList.toggle('.article-open')
+    article.classList.toggle('article-open')
 
   });
 
@@ -166,7 +164,7 @@ function articleCreator(data) {
 
   return article;
 
-}
+};
 
 const articles = document.querySelector('.articles');
 
