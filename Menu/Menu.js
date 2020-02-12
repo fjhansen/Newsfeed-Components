@@ -40,8 +40,10 @@ function menuCreator(array) {
 
   div.classList.add('menu');
 
-  //console.log(div);
 
+  //console.log(div);
+  
+  header.appendChild(div);
   div.appendChild(ul);
 
   array.forEach(array => {
@@ -51,17 +53,20 @@ function menuCreator(array) {
     div.appendChild(li);
     ul.appendChild(li);
 
-    //console.log(li)
+    
 
   });
 
     const menuButton = document.querySelector('.menu-button');
-    menuButton.addEventListener('click', event => {
-      div.classList.toggle("menu--open");
+    menuButton.addEventListener('click', () => {
+      div.classList.toggle('menu--open');
       //console.log(menuButton);
     })
 
     return div;
 
 }
-document.querySelector('body').appendChild(menuCreator(menuItems));
+
+let header = document.querySelector('.header');
+document.querySelector('.articles').appendChild(menuCreator(menuItems));
+
