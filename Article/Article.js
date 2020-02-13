@@ -112,3 +112,63 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function articleCreator(array) {
+
+  // Copmponents
+
+ let articles = document.querySelector('.articles');
+  let article = document.createElement('div');
+  let articleTitle = document.createElement('h2');
+  let articleDate = document.createElement('p');
+  let p1 = document.createElement('p');
+  let p2 = document.createElement('p');
+  let p3 = document.createElement('p');
+  let buttonOne = document.createElement('span');
+
+
+  // Append
+
+  articles.appendChild(article);
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(buttonOne);
+
+  // Add Classes
+
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  buttonOne.classList.add('expandButton');
+
+  // Text Content
+
+  articleTitle.textContent = array.title;
+  articleDate.textContent = array.date;
+  p1.textContent = array.firstParagraph;
+  p2.textContent = array.secondParagraph;
+  p3.textContent = array.thirdParagraph;
+  buttonOne.textContent = "Click Me!";
+
+  // Event
+
+  buttonOne.addEventListener('click', (event) => {
+
+    article.classList.toggle('article-open')
+
+  });
+
+  // Return
+
+  return article;
+
+};
+
+const articles = document.querySelector('.articles');
+
+data.forEach(data => {
+   
+  articles.appendChild(articleCreator(data));
+});
